@@ -25,7 +25,6 @@
                     <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Poster</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judul Film</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu Tayang</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga Tiket</th>
@@ -36,13 +35,6 @@
                         @forelse($jadwals as $index => $jadwal)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $index + 1 }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if($jadwal->film->poster)
-                                        <img src="{{ asset('storage/' . $jadwal->film->poster) }}" alt="Poster" class="h-16 w-12 object-cover rounded">
-                                    @else
-                                        <span class="text-gray-400 text-xs">Tidak ada</span>
-                                    @endif
-                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap font-semibold">{{ $jadwal->film->judul_film }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <!-- Format waktu tayang menggunakan Carbon (Y-m-d H:i) -->
