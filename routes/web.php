@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\LaporanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +28,9 @@ Route::middleware('auth')->group(function () {
     })->name('admin.dashboard');
     Route::resource('admin/films', FilmController::class);
     Route::resource('admin/jadwals', JadwalController::class);
+    Route::resource('admin/pemesanans', PemesananController::class);
+    Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan.index');
+    
 });
 
 require __DIR__.'/auth.php';
