@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
         $table->id();
         $table->foreignId('film_id')->constrained('films')->onDelete('cascade');
-        $table->date('tanggal_tayang');
-        $table->time('jam_tayang');
-        $table->integer('harga'); // <--- Kolom harga dimasukkan di sini
+        
+        // Hapus tanggal_tayang dan jam_tayang, ganti dengan satu kolom ini:
+        $table->dateTime('waktu_tayang'); 
+
+        $table->integer('harga');
         $table->timestamps();
     });
     }
